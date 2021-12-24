@@ -6,7 +6,7 @@ import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
 
 public interface InterbankInterface {
-	
+
 	/**
 	 * Pay order, and then return the payment transaction
 	 * 
@@ -21,7 +21,7 @@ public interface InterbankInterface {
 	 */
 	public abstract PaymentTransaction payOrder(CreditCard card, int amount, String contents)
 			throws PaymentException, UnrecognizedException;
-	
+
 	/**
 	 * Refund, and then return the payment transaction
 	 * 
