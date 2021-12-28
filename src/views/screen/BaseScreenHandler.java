@@ -47,11 +47,11 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 		this.stage.setTitle(string);
 	}
 
-	public void setBController(BaseController bController) {
+	public void setBController(BaseController bController){
 		this.bController = bController;
 	}
 
-	public BaseController getBController() {
+	public BaseController getBController(){
 		return this.bController;
 	}
 

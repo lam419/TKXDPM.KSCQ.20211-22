@@ -73,7 +73,7 @@
 				</VBox>
 			</children>
 		</HBox>
-		<HBox fx:id="hboxMedia" layoutX="24.0" layoutY="123.0" prefHeight="629.0" prefWidth="1283.0">
+<!--   		<HBox fx:id="hboxMedia" layoutX="24.0" layoutY="123.0" prefHeight="629.0" prefWidth="1283.0">
 			<children>
 				<VBox fx:id="vboxMedia1" prefHeight="629.0" prefWidth="321.0" style="-fx-border-color: #33adff;" />
 				<VBox fx:id="vboxMedia2" prefHeight="629.0" prefWidth="320.0" style="-fx-border-color: #33adff;" />
@@ -81,5 +81,6 @@
 				<VBox prefHeight="629.0" prefWidth="320.0" style="-fx-border-color: #33adff;" />
 			</children>
 		</HBox>
+-->
 	</children>
 </AnchorPane>
