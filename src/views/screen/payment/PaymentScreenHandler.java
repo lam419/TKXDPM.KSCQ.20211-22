@@ -28,6 +28,15 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 
 	public PaymentScreenHandler(Stage stage, String screenPath, int amount, String contents) throws IOException {
 		super(stage, screenPath);
+		
+		btnConfirmPayment.setOnMouseClicked(e -> {
+			try {
+				confirmToPayOrder();
+//				((PaymentController) getBController()).emptyCart();
+			} catch (Exception exp) {
+				System.out.println(exp.getStackTrace());
+			}
+		});
 	}
 
 //	public PaymentScreenHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
@@ -62,14 +71,14 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	void confirmToPayOrder() throws IOException {
 		String contents = "pay order";
 		PaymentController ctrl = (PaymentController) getBController();
-//		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
-//				expirationDate.getText(), securityCode.getText());
+		Map<String, String> response = ctrl.payOrder(400000, contents, cardNumber.getText(), holderName.getText(),
+				expirationDate.getText(), securityCode.getText());
 
-//		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE") );
-//		resultScreen.setPreviousScreen(this);
-//		resultScreen.setHomeScreenHandler(homeScreenHandler);
-//		resultScreen.setScreenTitle("Result Screen");
-//		resultScreen.show();
+		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE") );
+		resultScreen.setPreviousScreen(this);
+		resultScreen.setHomeScreenHandler(homeScreenHandler);
+		resultScreen.setScreenTitle("Result Screen");
+		resultScreen.show();
 	}
 
 }

@@ -1,4 +1,4 @@
 package controller;
 
-public class RentBikeController {
+public class RentBikeController extends BaseController{
 }
