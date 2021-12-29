@@ -99,6 +99,25 @@ public class Bike {
 		return type;
 	}
 
+	public String getTypeString() {
+		switch (type) {
+		case 0:
+			return "Xe đạp đơn";
+		case 1:
+			return "Xe đạp điện";
+		default:
+			return "Xe đạp đôi";
+		}
+	}
+
+	public int getDeposit() {
+		switch (type) {
+			case 0: return 400000;
+			case 1: return 700000;
+			default: return 550000;
+		}
+	}
+
 	public void setType(int type) {
 		this.type = type;
 	}
@@ -150,6 +169,11 @@ public class Bike {
 			return false;
 		}
 		return true;
+	}
+
+	public Bike getBikeFromId(String code) {
+		// TODO get bike from database
+		return this;
 	}
 
 	public boolean equals(Bike obj) {
