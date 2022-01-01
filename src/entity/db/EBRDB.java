@@ -17,7 +17,7 @@ public class EBRDB {
 		try {
 			Class.forName("org.sqlite.JDBC");
 			// TODO rename path to db
-			String url = "jdbc:sqlite:assets/db/aims.db";
+			String url = "jdbc:sqlite:assets/db/ebr.db";
 			connect = DriverManager.getConnection(url);
 			LOGGER.info("Connect database successfully");
 		} catch (Exception e) {

@@ -2,6 +2,10 @@ package entity.bike;
 
 import java.util.Date;
 
+import common.exception.InvalidBarCodeException;
+import javafx.scene.image.Image;
+import utils.Configs;
+
 public class Bike {
 
 //	public final int BIKE = 0;
@@ -117,6 +121,21 @@ public class Bike {
 			default: return 550000;
 		}
 	}
+	
+	public Image getImage() {
+		String url = Configs.IMAGE_PATH;
+		switch (type) {
+		case 0:
+			url += "/" + "Bike.jpg";
+			break;
+		case 1:
+			url += "/" + "ElectricBike.png";
+			break;
+		default:
+			url += "/" + "TwinBike.jpg";
+		}
+		return new Image(url);
+	}
 
 	public void setType(int type) {
 		this.type = type;
@@ -173,7 +192,8 @@ public class Bike {
 
 	public Bike getBikeFromId(String code) {
 		// TODO get bike from database
-		return this;
+		
+		return null;
 	}
 
 	public boolean equals(Bike obj) {

@@ -1,7 +1,5 @@
 package controller;
 
-import java.io.IOException;
-
 import common.exception.InvalidBarCodeException;
 import entity.bike.Bike;
 

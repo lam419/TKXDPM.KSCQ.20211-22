@@ -21,6 +21,9 @@ import views.screen.popup.PopupScreen;
 public class RentBikeScreenHandler extends BaseScreenHandler {
 
 	@FXML
+	private ImageView ebrImage;
+
+	@FXML
 	private TextField barCodeTextField;
 
 	@FXML
@@ -31,10 +34,14 @@ public class RentBikeScreenHandler extends BaseScreenHandler {
 
 	private String barCode;
 	private int deposit;
+	private boolean isValidBarCode = false;
 
 	public RentBikeScreenHandler(Stage stage, String screenPath) throws IOException {
 		super(stage, screenPath);
 
+		ebrImage.setOnMouseClicked(e -> {
+			homeScreenHandler.show();
+		});
 	}
 
 	public RentBikeController getBController() {
@@ -49,13 +56,17 @@ public class RentBikeScreenHandler extends BaseScreenHandler {
 
 	@FXML
 	void payDeposit(MouseEvent event) throws IOException {
-		BaseScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN_PATH, deposit,
-				"deposit");
-		paymentScreen.setBController(new PaymentController());
-		paymentScreen.setPreviousScreen(this);
-		paymentScreen.setHomeScreenHandler(homeScreenHandler);
-		paymentScreen.setScreenTitle("Payment Screen");
-		paymentScreen.show();
+		if (isValidBarCode) {
+			BaseScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN_PATH, deposit,
+					"deposit");
+			paymentScreen.setBController(new PaymentController());
+			paymentScreen.setPreviousScreen(this);
+			paymentScreen.setHomeScreenHandler(homeScreenHandler);
+			paymentScreen.setScreenTitle("Payment Screen");
+			paymentScreen.show();
+		} else {
+			PopupScreen.error("Invalid barcode");
+		}
 	}
 
 	@FXML
@@ -64,11 +75,23 @@ public class RentBikeScreenHandler extends BaseScreenHandler {
 			barCode = barCodeTextField.getText();
 			getBController().processBarCode(barCode);
 			Bike bike = getBController().getBikeFromBarCode(barCode);
-			deposit = bike.getDeposit();
-			bikeLabel.setText(bike.getTypeString());
+			if (bike != null) {
+				deposit = bike.getDeposit();
+				bikeLabel.setText(bike.getTypeString());
+
+				isValidBarCode = true;
+				bikeLabel.setText(bike.getTypeString());
+				bikeLabel.setVisible(true);
+				bikeImage.setImage(bike.getImage());
+				bikeImage.setVisible(true);
+				
+			}
 		} catch (InvalidBarCodeException e) {
 			PopupScreen.error("Invalid barcode");
-		} 
+			isValidBarCode = false;
+			bikeLabel.setVisible(false);
+			bikeImage.setVisible(false);
+		}
 	}
 
 }
