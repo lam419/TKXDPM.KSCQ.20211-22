@@ -77,12 +77,11 @@ public class RentBikeScreenHandler extends BaseScreenHandler {
 			Bike bike = getBController().getBikeFromBarCode(barCode);
 			if (bike != null) {
 				deposit = bike.getDeposit();
-				bikeLabel.setText(bike.getTypeString());
 
 				isValidBarCode = true;
 				bikeLabel.setText(bike.getTypeString());
 				bikeLabel.setVisible(true);
-				bikeImage.setImage(bike.getImage());
+				setImage(bikeImage, bike.getImageUrl());
 				bikeImage.setVisible(true);
 				
 			}

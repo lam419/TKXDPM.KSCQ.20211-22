@@ -16,12 +16,12 @@ public class Configs {
 	// demo data
 	// TODO
 	public static final String POST_DATA = "{"
-			+ " \"secretKey\": \"BUXj/7/gHHI=\" ,"
+			+ " \"secretKey\": \"BZl0Q/U8834=\" ,"
 			+ " \"transaction\": {"
 			+ " \"command\": \"pay\" ,"
-			+ " \"cardCode\": \"118609_group1_2020\" ,"
-			+ " \"owner\": \"Group 1\" ,"
-			+ " \"cvvCode\": \"185\" ,"
+			+ " \"cardCode\": \"kscq1_group22_2020\" ,"
+			+ " \"owner\": \"Group 22\" ,"
+			+ " \"cvvCode\": \"586\" ,"
 			+ " \"dateExpried\": \"1125\" ,"
 			+ " \"transactionContent\": \"Pei debt\" ,"
 			+ " \"amount\": 50000 "
@@ -31,7 +31,7 @@ public class Configs {
 
 	// database Configs
 	// TODO database
-	public static final String DB_NAME = "aims";
+	public static final String DB_NAME = "ebr";
 	public static final String DB_USERNAME = System.getenv("DB_USERNAME");
 	public static final String DB_PASSWORD = System.getenv("DB_PASSWORD");
 

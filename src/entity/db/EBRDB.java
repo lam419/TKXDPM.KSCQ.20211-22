@@ -11,14 +11,15 @@ public class EBRDB {
 	private static Logger LOGGER = Utils.getLogger(Connection.class.getName());
 	private static Connection connect;
 
+	private static String DB_URL = "jdbc:mysql://localhost:3306/ebr";
+	private static String USER_NAME = "root";
+	private static String PASSWORD = "luongbs01";
+
 	public static Connection getConnection() {
 		if (connect != null)
 			return connect;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			// TODO rename path to db
-			String url = "jdbc:sqlite:assets/db/ebr.db";
-			connect = DriverManager.getConnection(url);
+			connect = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 			LOGGER.info("Connect database successfully");
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage());
