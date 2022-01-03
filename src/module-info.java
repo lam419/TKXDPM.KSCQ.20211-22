@@ -12,4 +12,6 @@ module EcoBikeRental {
 	opens views.screen.rentbike to javafx.fxml;
 	opens views.screen.payment to javafx.fxml;
 	opens views.screen.popup to javafx.fxml;
+	opens views.screen.bikeinfo to javafx.fxml;
+
 }
