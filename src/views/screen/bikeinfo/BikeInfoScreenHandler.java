@@ -38,7 +38,6 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
 		show();
 	}
 
-
 	public void setImage() {
 		// fix image path caused by fxml
 		File file1 = new File(Configs.IMAGE_PATH + "/" + "Logo.png");
@@ -49,6 +48,5 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
 		Image img2 = new Image(file2.toURI().toString());
 //        cartImage.setImage(img2);
 	}
-
 
 }

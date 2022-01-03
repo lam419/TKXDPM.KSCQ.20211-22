@@ -1,5 +1,7 @@
 package controller;
 
+import java.sql.SQLException;
+
 import common.exception.InvalidBarCodeException;
 import entity.bike.Bike;
 
@@ -10,11 +12,10 @@ public class BikeInfoController extends BaseController {
 			throw new InvalidBarCodeException();
 	}
 
-
 	public boolean validateBarCode(String barCode) {
 		if (barCode == null)
 			return false;
-		if (barCode.length() != 13)
+		if (barCode.length() != 8)
 			return false;
 
 		char[] chars = barCode.toCharArray();
@@ -25,7 +26,7 @@ public class BikeInfoController extends BaseController {
 		return true;
 	}
 
-	public Bike getBikeFromBarCode(String barCode) {
+	public Bike getBikeFromBarCode(String barCode) throws SQLException {
 		return new Bike().getBikeFromId(barCode);
 	}
 }
