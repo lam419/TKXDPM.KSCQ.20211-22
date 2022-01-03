@@ -34,4 +34,5 @@ public class RentBikeController extends BaseController {
 	public Bike getBikeFromBarCode(String barCode) throws SQLException {
 		return new Bike().getBikeFromId(barCode);
 	}
+
 }

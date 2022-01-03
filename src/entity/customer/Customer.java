@@ -22,11 +22,11 @@ public class Customer {
 		return "{" + "  username='" + name + "'" + ", email='" + email + "'" + ", address='" + address + "'"
 				+ ", phone='" + phone + "'" + "}";
 	}
-	
+
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}

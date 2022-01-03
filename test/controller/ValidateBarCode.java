@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class ValidateBarCode {
-	
+
 	private RentBikeController rentBikeController;
 
 	@BeforeEach
@@ -17,12 +17,7 @@ class ValidateBarCode {
 	}
 
 	@ParameterizedTest
-	@CsvSource({
-		"8900123456789,true",
-		"01234,false",
-		"abc123,false",
-		",false"
-	})
+	@CsvSource({ "8900123456789,true", "01234,false", "abc123,false", ",false" })
 
 	void test(String code, Boolean expected) {
 		boolean isValid = rentBikeController.validateBarCode(code);

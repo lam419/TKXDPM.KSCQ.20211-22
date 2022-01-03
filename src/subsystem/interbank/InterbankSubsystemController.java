@@ -19,8 +19,8 @@ import utils.Utils;
 public class InterbankSubsystemController {
 
 	// TODO change key
-	private static final String PUBLIC_KEY = "AQzdE8O/fR8=";
-	private static final String SECRET_KEY = "BUXj/7/gHHI=";
+	private static final String PUBLIC_KEY = "B5pajA7L4VU=";
+	private static final String SECRET_KEY = "BZl0Q/U8834=";
 	private static final String PAY_COMMAND = "pay";
 	private static final String VERSION = "1.0.0";
 
@@ -29,7 +29,7 @@ public class InterbankSubsystemController {
 	public PaymentTransaction refund(CreditCard card, int amount, String contents) {
 		return null;
 	}
-	
+
 	private String generateData(Map<String, Object> data) {
 		return ((MyMap) data).toJSON();
 	}
@@ -58,6 +58,7 @@ public class InterbankSubsystemController {
 			response = MyMap.toMyMap(responseText, 0);
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
+			System.out.print("luong payorder");
 			throw new UnrecognizedException();
 		}
 
@@ -92,6 +93,7 @@ public class InterbankSubsystemController {
 		case "07":
 			throw new InvalidTransactionAmountException();
 		default:
+			System.out.print("luong makepaymentransaction");
 			throw new UnrecognizedException();
 		}
 

@@ -25,7 +25,7 @@ public class ResultScreenHandler extends BaseScreenHandler {
 
 	@FXML
 	private Button okButton;
-	
+
 	@FXML
 	private Label messageLabel;
 

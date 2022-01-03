@@ -34,6 +34,7 @@ public class RentBikeScreenHandler extends BaseScreenHandler {
 
 	private String barCode;
 	private int deposit;
+	private int bikeId;
 	private boolean isValidBarCode = false;
 
 	public RentBikeScreenHandler(Stage stage, String screenPath) throws IOException {
@@ -58,7 +59,7 @@ public class RentBikeScreenHandler extends BaseScreenHandler {
 	void payDeposit(MouseEvent event) throws IOException {
 		if (isValidBarCode) {
 			BaseScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN_PATH, deposit,
-					"deposit");
+					bikeId, "deposit");
 			paymentScreen.setBController(new PaymentController());
 			paymentScreen.setPreviousScreen(this);
 			paymentScreen.setHomeScreenHandler(homeScreenHandler);
@@ -77,13 +78,16 @@ public class RentBikeScreenHandler extends BaseScreenHandler {
 			Bike bike = getBController().getBikeFromBarCode(barCode);
 			if (bike != null) {
 				deposit = bike.getDeposit();
+				bikeId = bike.getBikeId();
 
 				isValidBarCode = true;
 				bikeLabel.setText(bike.getTypeString());
 				bikeLabel.setVisible(true);
 				setImage(bikeImage, bike.getImageUrl());
 				bikeImage.setVisible(true);
-				
+
+			} else {
+				PopupScreen.error("Invalid barcode");
 			}
 		} catch (InvalidBarCodeException e) {
 			PopupScreen.error("Invalid barcode");

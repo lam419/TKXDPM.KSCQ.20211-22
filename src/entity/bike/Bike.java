@@ -5,8 +5,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import entity.db.EBRDB;
-import javafx.scene.image.Image;
 import utils.Configs;
+import utils.Utils;
 
 public class Bike {
 
@@ -54,12 +54,15 @@ public class Bike {
 
 	public int getDeposit() {
 		switch (type) {
-			case 0: return 400000;
-			case 1: return 700000;
-			default: return 550000;
+		case 0:
+			return 400000;
+		case 1:
+			return 700000;
+		default:
+			return 550000;
 		}
 	}
-	
+
 	public String getImageUrl() {
 		String url = Configs.IMAGE_PATH;
 		switch (type) {
@@ -89,16 +92,34 @@ public class Bike {
 
 	public Bike getBikeFromId(String code) throws SQLException {
 		String sql = "SELECT * FROM bike where id = " + code;
-        Statement stm = EBRDB.getConnection().createStatement();
-        ResultSet res = stm.executeQuery(sql);
-		if(res.next()) {
+		Statement stm = EBRDB.getConnection().createStatement();
+		ResultSet res = stm.executeQuery(sql);
+		if (res.next()) {
 
-            Bike bike = new Bike();
-            bike.setBikeId(res.getInt("id"));
-            bike.setType(res.getInt("type"));
-            return bike;
-        }
-        return null;
-		
+			Bike bike = new Bike();
+			bike.setBikeId(res.getInt("id"));
+			bike.setType(res.getInt("type"));
+			return bike;
+		}
+		return null;
+	}
+
+	public void rentBike(int bikeId) throws SQLException {
+		int customerId = 10000;
+		int rentedat = 1000;
+
+		String sql = "SELECT * FROM bike where id = " + bikeId;
+		Statement stm = EBRDB.getConnection().createStatement();
+		ResultSet res = stm.executeQuery(sql);
+		if (res.next()) {
+			rentedat = res.getInt("station");
+		}
+
+		sql = "UPDATE bike SET station = NULL WHERE id = " + bikeId;
+		stm.executeQuery(sql);
+
+		sql = "INSERT INTO bikerental (bikeId, customerId, rentedat, time) VALUES(" + bikeId + "," + customerId + ","
+				+ rentedat + "," + Utils.getToday() + ")";
+		stm.executeQuery(sql);
 	}
 }

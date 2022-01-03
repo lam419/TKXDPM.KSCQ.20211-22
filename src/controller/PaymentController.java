@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Hashtable;
 import java.util.Map;
@@ -7,6 +8,7 @@ import java.util.Map;
 import common.exception.InvalidCardException;
 import common.exception.PaymentException;
 import common.exception.UnrecognizedException;
+import entity.bike.Bike;
 //import entity.cart.Cart;
 import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
@@ -98,7 +100,7 @@ public class PaymentController extends BaseController {
 		return result;
 	}
 
-//	public void emptyCart(){
-//        Cart.getCart().emptyCart();
-//    }
+	public void addDepositTransactionToDatabse(int bikeId) throws SQLException {
+		new Bike().rentBike(bikeId);
+	}
 }
