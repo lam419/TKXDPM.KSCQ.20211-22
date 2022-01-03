@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+D:\Clone\TKXDPM.KSCQ.20211-22\.metadata\.plugins\org.eclipse.jdt.core
+1696731249.index
+2129691884.index
