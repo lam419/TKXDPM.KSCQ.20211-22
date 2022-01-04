@@ -48,5 +48,23 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
 		Image img2 = new Image(file2.toURI().toString());
 //        cartImage.setImage(img2);
 	}
+public ResultSet view(String bike){
+		ResultSet resultSet = null;
+		try {
+			Statement statement = (Statement) connection.createStatement();
+			String sql = "SELECT * FROM WHERE bikeid = ' " + bike + " '";
 
+			resultSet = statement.executeQuery(sql);
+		} catch (SQLException e) {
+			return null;
+		}
+		try {
+			bikeid.setText(resultSet.getString("bikeid"));
+			biketype.setText(resultSet.getString("biketype"));
+			enegy.setText(resultSet.getString("enegy"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultSet;
+	}
 }
