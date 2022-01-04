@@ -20,6 +20,21 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
 	@FXML
 	private ImageView ebrImage;
 
+	@FXML
+	private Label bikeid;
+
+	@FXML
+	private Label biketype;
+
+	@FXML
+	private Label enegy;
+
+	@FXML
+	private Label time;
+
+	@FXML
+	private Label cost;
+	
 	public BikeInfoScreenHandler(Stage stage, String screenPath) throws IOException {
 		super(stage, screenPath);
 
