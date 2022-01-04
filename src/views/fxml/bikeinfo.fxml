@@ -77,31 +77,19 @@
                   <HBox prefHeight="44.0" prefWidth="454.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="47.0" text="Mã xe:" />
-                        <TextField />
+                        <Label fx:id="bikeid" prefHeight="17.0" prefWidth="47.0"/>
                      </children>
                   </HBox>
                   <HBox prefHeight="44.0" prefWidth="454.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="47.0" text="loại xe:" />
-                        <TextField />
+                        <Label fx:id="biketype" prefHeight="17.0" prefWidth="47.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="44.0" prefWidth="454.0">
                      <children>
                         <Label prefHeight="17.0" prefWidth="72.0" text="Lượng pin:" />
-                        <TextField />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="44.0" prefWidth="454.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="94.0" text="thời gian thuê:" />
-                        <TextField />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="44.0" prefWidth="454.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="98.0" text="số tiền phải trả" />
-                        <TextField />
+                        <Label fx:id="enegy" prefHeight="17.0" prefWidth="47.0" />
                      </children>
                   </HBox>
                </children></VBox>
