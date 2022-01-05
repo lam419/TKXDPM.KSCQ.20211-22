@@ -11,13 +11,13 @@ import javafx.scene.image.ImageView;
 
 public class SplashScreenHandler implements Initializable {
 
-	@FXML
-	ImageView logo;
+    @FXML
+    ImageView logo;
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		File file = new File("assets/images/Logo.png");
-		Image image = new Image(file.toURI().toString());
-		logo.setImage(image);
-	}
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        File file = new File("assets/images/Logo.png");
+        Image image = new Image(file.toURI().toString());
+        logo.setImage(image);
+    }
 }

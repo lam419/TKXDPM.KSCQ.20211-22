@@ -12,89 +12,98 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="788.0" prefWidth="1326.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
-	<children>
-		<HBox prefHeight="104.0" prefWidth="1326.0" style="-fx-background-color: #ccebff; -fx-border-color: #33adff;">
-			<children>
-				<VBox prefHeight="102.0" prefWidth="231.0">
-					<children>
-						<Pane prefHeight="102.0" prefWidth="237.0">
-							<children>
-								<ImageView fx:id="aimsImage" fitHeight="94.0" fitWidth="115.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
-									<image>
-										<Image url="@../../../assets/images/Logo.png" />
-									</image>
-								</ImageView>
-								<Label alignment="CENTER" layoutX="6.0" layoutY="68.0" prefHeight="41.0" prefWidth="100.0" text="EBR" textAlignment="CENTER" textFill="#5091e6">
-									<font>
-										<Font size="24.0" />
-									</font>
-								</Label>
-							</children>
-						</Pane>
-					</children>
-				</VBox>
-				<HBox prefHeight="102.0" prefWidth="882.0">
-					<children>
-						<Pane prefHeight="102.0" prefWidth="562.0" />
-						<Pane prefHeight="102.0" prefWidth="158.0" />
-                   <Pane prefHeight="200.0" prefWidth="200.0" />
-					</children>
-				</HBox>
-				<VBox prefHeight="102.0" prefWidth="161.0">
-					<children>
-						<Pane prefHeight="200.0" prefWidth="200.0">
-							<children>
-								<ImageView fx:id="cartImage" fitHeight="75.0" fitWidth="64.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
-									<image>
-										<Image url="" />
-									</image>
-								</ImageView>
-								<Label fx:id="numMediaInCart" layoutX="24.0" layoutY="11.0" prefHeight="16.0" prefWidth="64.0" text="0 media" textFill="#5091e6" />
-							</children>
-						</Pane>
-					</children>
-				</VBox>
-			</children>
-		</HBox>
-  		<HBox fx:id="hboxMedia" layoutX="24.0" layoutY="123.0" prefHeight="629.0" prefWidth="1283.0">
-			<children>
-				<VBox fx:id="vboxMedia1" prefHeight="629.0" prefWidth="408.0" style="-fx-border-color: #33adff;">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="73.0" text="trở lại" />
-               </children></VBox>
-				<VBox fx:id="vboxMedia2" prefHeight="629.0" prefWidth="458.0" style="-fx-border-color: #33adff;">
-               <children>
-                  <ImageView fitHeight="335.0" fitWidth="357.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../assets/images/Logo.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </ImageView>
-                  <Pane prefHeight="49.0" prefWidth="452.0" />
-                  <HBox prefHeight="44.0" prefWidth="454.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="47.0" text="Mã xe:" />
-                        <Label fx:id="bikeid" prefHeight="17.0" prefWidth="47.0"/>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="44.0" prefWidth="454.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="47.0" text="loại xe:" />
-                        <Label fx:id="biketype" prefHeight="17.0" prefWidth="47.0" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="44.0" prefWidth="454.0">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="72.0" text="Lượng pin:" />
-                        <Label fx:id="enegy" prefHeight="17.0" prefWidth="47.0" />
-                     </children>
-                  </HBox>
-               </children></VBox>
-				<VBox fx:id="vboxMedia3" prefHeight="629.0" prefWidth="429.0" style="-fx-border-color: #33adff;" />
-			</children>
-		</HBox>
-	</children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="788.0" prefWidth="1326.0"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox prefHeight="104.0" prefWidth="1326.0" style="-fx-background-color: #ccebff; -fx-border-color: #33adff;">
+            <children>
+                <VBox prefHeight="102.0" prefWidth="231.0">
+                    <children>
+                        <Pane prefHeight="102.0" prefWidth="237.0">
+                            <children>
+                                <ImageView fx:id="aimsImage" fitHeight="94.0" fitWidth="115.0" layoutY="1.0"
+                                           pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                                    <image>
+                                        <Image url="@../../../assets/images/Logo.png"/>
+                                    </image>
+                                </ImageView>
+                                <Label alignment="CENTER" layoutX="6.0" layoutY="68.0" prefHeight="41.0"
+                                       prefWidth="100.0" text="EBR" textAlignment="CENTER" textFill="#5091e6">
+                                    <font>
+                                        <Font size="24.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+                <HBox prefHeight="102.0" prefWidth="882.0">
+                    <children>
+                        <Pane prefHeight="102.0" prefWidth="562.0"/>
+                        <Pane prefHeight="102.0" prefWidth="158.0"/>
+                        <Pane prefHeight="200.0" prefWidth="200.0"/>
+                    </children>
+                </HBox>
+                <VBox prefHeight="102.0" prefWidth="161.0">
+                    <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <ImageView fx:id="cartImage" fitHeight="75.0" fitWidth="64.0" layoutX="14.0"
+                                           layoutY="19.0" pickOnBounds="true" preserveRatio="true"
+                                           style="-fx-cursor: hand;">
+                                    <image>
+                                        <Image url=""/>
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="numMediaInCart" layoutX="24.0" layoutY="11.0" prefHeight="16.0"
+                                       prefWidth="64.0" text="0 media" textFill="#5091e6"/>
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <HBox fx:id="hboxMedia" layoutX="24.0" layoutY="123.0" prefHeight="629.0" prefWidth="1283.0">
+            <children>
+                <VBox fx:id="vboxMedia1" prefHeight="629.0" prefWidth="408.0" style="-fx-border-color: #33adff;">
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="73.0" text="trở lại"/>
+                    </children>
+                </VBox>
+                <VBox fx:id="vboxMedia2" prefHeight="629.0" prefWidth="458.0" style="-fx-border-color: #33adff;">
+                    <children>
+                        <ImageView fitHeight="335.0" fitWidth="357.0" nodeOrientation="INHERIT" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../../../assets/images/Logo.png"/>
+                            </image>
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </ImageView>
+                        <Pane prefHeight="49.0" prefWidth="452.0"/>
+                        <HBox prefHeight="44.0" prefWidth="454.0">
+                            <children>
+                                <Label prefHeight="17.0" prefWidth="47.0" text="Mã xe:"/>
+                                <Label fx:id="bikeid" prefHeight="17.0" prefWidth="47.0"/>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="44.0" prefWidth="454.0">
+                            <children>
+                                <Label prefHeight="17.0" prefWidth="47.0" text="loại xe:"/>
+                                <Label fx:id="biketype" prefHeight="17.0" prefWidth="47.0"/>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="44.0" prefWidth="454.0">
+                            <children>
+                                <Label prefHeight="17.0" prefWidth="72.0" text="Lượng pin:"/>
+                                <Label fx:id="enegy" prefHeight="17.0" prefWidth="47.0"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox fx:id="vboxMedia3" prefHeight="629.0" prefWidth="429.0" style="-fx-border-color: #33adff;"/>
+            </children>
+        </HBox>
+    </children>
 </AnchorPane>

@@ -39,58 +39,58 @@ import views.screen.rentbike.RentBikeScreenHandler;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
 
-	public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
+    public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
 
-	@FXML
-	private Label numMediaInCart;
+    @FXML
+    private Label numMediaInCart;
 
-	@FXML
-	private ImageView aimsImage;
+    @FXML
+    private ImageView aimsImage;
 
-	@FXML
-	private ImageView cartImage;
+    @FXML
+    private ImageView cartImage;
 
-	@FXML
-	private VBox vboxMedia1;
+    @FXML
+    private VBox vboxMedia1;
 
-	@FXML
-	private VBox vboxMedia2;
+    @FXML
+    private VBox vboxMedia2;
 
-	@FXML
-	private VBox vboxMedia3;
+    @FXML
+    private VBox vboxMedia3;
 
-	@FXML
-	private HBox hboxMedia;
+    @FXML
+    private HBox hboxMedia;
 
-	@FXML
-	private SplitMenuButton splitMenuBtnSearch;
+    @FXML
+    private SplitMenuButton splitMenuBtnSearch;
 
-	@FXML
-	private Button rentBikeButton;
+    @FXML
+    private Button rentBikeButton;
 
-	private List homeItems;
+    private List homeItems;
 
-	public HomeScreenHandler(Stage stage, String screenPath) throws IOException {
-		super(stage, screenPath);
-	}
+    public HomeScreenHandler(Stage stage, String screenPath) throws IOException {
+        super(stage, screenPath);
+    }
 
 //    public Label getNumMediaCartLabel(){
 //        return this.numMediaInCart;
 //    }
 
-	public HomeController getBController() {
-		return (HomeController) super.getBController();
-	}
+    public HomeController getBController() {
+        return (HomeController) super.getBController();
+    }
 
-	@Override
-	public void show() {
+    @Override
+    public void show() {
 //        numMediaInCart.setText(String.valueOf(Cart.getCart().getListMedia().size()) + " media");
-		super.show();
-	}
+        super.show();
+    }
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		setBController(new HomeController());
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        setBController(new HomeController());
 //        try{
 //            List medium = getBController().getAllMedia();
 //            this.homeItems = new ArrayList<>();
@@ -125,19 +125,19 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 //        addMenuItem(0, "Book", splitMenuBtnSearch);
 //        addMenuItem(1, "DVD", splitMenuBtnSearch);
 //        addMenuItem(2, "CD", splitMenuBtnSearch);
-	}
+    }
 
-//
-	public void setImage() {
-		// fix image path caused by fxml
-		File file1 = new File(Configs.IMAGE_PATH + "/" + "Logo.png");
-		Image img1 = new Image(file1.toURI().toString());
+    //
+    public void setImage() {
+        // fix image path caused by fxml
+        File file1 = new File(Configs.IMAGE_PATH + "/" + "Logo.png");
+        Image img1 = new Image(file1.toURI().toString());
 //        aimsImage.setImage(img1);
 
-		File file2 = new File(Configs.IMAGE_PATH + "/" + "cart.png");
-		Image img2 = new Image(file2.toURI().toString());
+        File file2 = new File(Configs.IMAGE_PATH + "/" + "cart.png");
+        Image img2 = new Image(file2.toURI().toString());
 //        cartImage.setImage(img2);
-	}
+    }
 //
 //    public void addMediaHome(List items){
 //        ArrayList mediaItems = (ArrayList)((ArrayList) items).clone();
@@ -188,18 +188,18 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 //        menuButton.getItems().add(position, menuItem);
 //    }
 
-	@FXML
-	void requestToRentBike(MouseEvent event) throws IOException {
-		RentBikeScreenHandler rentBikeScreen;
-		try {
-			rentBikeScreen = new RentBikeScreenHandler(this.stage, Configs.RENT_BIKE_SCREEN_PATH);
-			rentBikeScreen.setHomeScreenHandler(this);
-			rentBikeScreen.setBController(new RentBikeController());
-			rentBikeScreen.requestToRentBike(this);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+    @FXML
+    void requestToRentBike(MouseEvent event) throws IOException {
+        RentBikeScreenHandler rentBikeScreen;
+        try {
+            rentBikeScreen = new RentBikeScreenHandler(this.stage, Configs.RENT_BIKE_SCREEN_PATH);
+            rentBikeScreen.setHomeScreenHandler(this);
+            rentBikeScreen.setBController(new RentBikeController());
+            rentBikeScreen.requestToRentBike(this);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
 }
