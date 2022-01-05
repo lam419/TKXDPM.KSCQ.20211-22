@@ -91,14 +91,14 @@ public class PaymentController extends BaseController {
             PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
 
             result.put("RESULT", "PAYMENT SUCCESSFUL!");
-            result.put("MESSAGE", "You have succesffully paid the order!");
+            result.put("MESSAGE", "You have successfully paid the order!");
         } catch (PaymentException | UnrecognizedException ex) {
             result.put("MESSAGE", ex.getMessage());
         }
         return result;
     }
 
-    public void addDepositTransactionToDatabse(int bikeId) throws SQLException {
+    public void addDepositTransactionToDatabase(int bikeId) throws SQLException {
         new Bike().rentBike(bikeId);
     }
 }

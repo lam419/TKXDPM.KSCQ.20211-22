@@ -18,11 +18,10 @@ import utils.Utils;
 
 public class InterbankSubsystemController {
 
-    // TODO change key
-    private static final String PUBLIC_KEY = "B5pajA7L4VU=";
+    private static final String APP_CODE = "B5pajA7L4VU=";
     private static final String SECRET_KEY = "BZl0Q/U8834=";
     private static final String PAY_COMMAND = "pay";
-    private static final String VERSION = "1.0.0";
+    private static final String VERSION = "1.0.1";
 
     private static InterbankBoundary interbankBoundary = new InterbankBoundary();
 
@@ -40,7 +39,6 @@ public class InterbankSubsystemController {
         try {
             transaction.putAll(MyMap.toMyMap(card));
         } catch (IllegalArgumentException | IllegalAccessException e) {
-            // TODO Auto-generated catch block
             throw new InvalidCardException();
         }
         transaction.put("command", PAY_COMMAND);
@@ -48,17 +46,21 @@ public class InterbankSubsystemController {
         transaction.put("amount", amount);
         transaction.put("createdAt", Utils.getToday());
 
+        Map<String, Object> hashCodeMap = new MyMap();
+        hashCodeMap.put("secretKey", SECRET_KEY);
+        hashCodeMap.put("transaction", transaction);
+        String hashCode = generateData(hashCodeMap);
+
         Map<String, Object> requestMap = new MyMap();
         requestMap.put("version", VERSION);
         requestMap.put("transaction", transaction);
-
+        requestMap.put("appCode", APP_CODE);
+        requestMap.put("hashCode", Utils.md5(hashCode));
         String responseText = interbankBoundary.query(Configs.PROCESS_TRANSACTION_URL, generateData(requestMap));
         MyMap response = null;
         try {
             response = MyMap.toMyMap(responseText, 0);
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            System.out.print("luong payorder");
             throw new UnrecognizedException();
         }
 
@@ -66,16 +68,8 @@ public class InterbankSubsystemController {
     }
 
     private PaymentTransaction makePaymentTransaction(MyMap response) {
-        if (response == null)
-            return null;
-        MyMap transcation = (MyMap) response.get("transaction");
-        CreditCard card = new CreditCard((String) transcation.get("cardCode"), (String) transcation.get("owner"),
-                Integer.parseInt((String) transcation.get("cvvCode")), (String) transcation.get("dateExpired"));
-        PaymentTransaction trans = new PaymentTransaction((String) response.get("errorCode"), card,
-                (String) transcation.get("transactionId"), (String) transcation.get("transactionContent"),
-                Integer.parseInt((String) transcation.get("amount")), (String) transcation.get("createdAt"));
-
-        switch (trans.getErrorCode()) {
+        String errorCode = (String) response.get("errorCode");
+        switch (errorCode) {
             case "00":
                 break;
             case "01":
@@ -93,11 +87,17 @@ public class InterbankSubsystemController {
             case "07":
                 throw new InvalidTransactionAmountException();
             default:
-                System.out.print("luong makepaymentransaction");
                 throw new UnrecognizedException();
         }
+        if (!response.containsKey("transaction"))
+            return null;
+        MyMap transaction = (MyMap) response.get("transaction");
+        CreditCard card = new CreditCard((String) transaction.get("cardCode"), (String) transaction.get("owner"),
+                Integer.parseInt((String) transaction.get("cvvCode")), (String) transaction.get("dateExpired"));
+        PaymentTransaction trans = new PaymentTransaction((String) response.get("errorCode"), card,
+                (String) transaction.get("transactionId"), (String) transaction.get("transactionContent"),
+                Integer.parseInt((String) transaction.get("amount")), (String) transaction.get("createdAt"));
 
         return trans;
     }
-
 }

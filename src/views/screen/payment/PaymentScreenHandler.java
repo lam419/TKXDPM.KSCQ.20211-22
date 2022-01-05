@@ -3,6 +3,7 @@ package views.screen.payment;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Map;
+import java.util.Objects;
 
 import controller.PaymentController;
 import javafx.fxml.FXML;
@@ -35,7 +36,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
             try {
                 confirmToPayDeposit();
             } catch (Exception exp) {
-                System.out.println(exp.getStackTrace());
+                exp.printStackTrace();
             }
         });
     }
@@ -58,10 +59,11 @@ public class PaymentScreenHandler extends BaseScreenHandler {
     void confirmToPayDeposit() throws IOException, SQLException {
         String contents = "pay deposit";
         PaymentController ctrl = (PaymentController) getBController();
-        Map<String, String> response = ctrl.payOrder(10000, contents, cardNumber.getText(), holderName.getText(),
+        Map<String, String> response = ctrl.payOrder(1000, contents, cardNumber.getText(), holderName.getText(),
                 expirationDate.getText(), securityCode.getText());
-        if (response.get("RESULT") == "PAYMENT SUCCESSFUL!") {
-            ctrl.addDepositTransactionToDatabse(bikeId);
+
+        if (Objects.equals(response.get("RESULT"), "PAYMENT SUCCESSFUL!")) {
+            ctrl.addDepositTransactionToDatabase(bikeId);
         }
 
         BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH,

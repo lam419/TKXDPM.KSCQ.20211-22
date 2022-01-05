@@ -19,46 +19,19 @@ import java.util.logging.Logger;
 
 public class API {
 
-    public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
 
-    public static String get(String url, String token) throws Exception {
-        LOGGER.info("Request URL: " + url + "\n");
-        URL line_api_url = new URL(url);
-        HttpURLConnection conn = (HttpURLConnection) line_api_url.openConnection();
-        conn.setDoInput(true);
-        conn.setDoOutput(true);
-        conn.setRequestMethod("GET");
-        conn.setRequestProperty("Content-Type", "application/json");
-        conn.setRequestProperty("Authorization", "Bearer " + token);
-        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        String inputLine;
-        StringBuilder respone = new StringBuilder(); // ising StringBuilder for the sake of memory and performance
-        while ((inputLine = in.readLine()) != null)
-            System.out.println(inputLine);
-        respone.append(inputLine + "\n");
-        in.close();
-        LOGGER.info("Respone Info: " + respone.substring(0, respone.length() - 1).toString());
-        return respone.substring(0, respone.length() - 1).toString();
-    }
-
-    int var;
-
-    public static String post(String url, String data
-//			, String token
-    ) throws IOException {
+    public static String post(String url, String data) throws IOException {
         allowMethods("PATCH");
         URL line_api_url = new URL(url);
-        String payload = data;
-        LOGGER.info("Request Info:\nRequest URL: " + url + "\n" + "Payload Data: " + payload + "\n");
+        LOGGER.info("Request Info:\nRequest URL: " + url + "\n" + "Payload Data: " + data + "\n");
         HttpURLConnection conn = (HttpURLConnection) line_api_url.openConnection();
         conn.setDoInput(true);
         conn.setDoOutput(true);
         conn.setRequestMethod("PATCH");
         conn.setRequestProperty("Content-Type", "application/json");
-//		conn.setRequestProperty("Authorization", "Bearer " + token);
         Writer writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-        writer.write(payload);
+        writer.write(data);
         writer.close();
         BufferedReader in;
         String inputLine;
@@ -71,7 +44,7 @@ public class API {
         while ((inputLine = in.readLine()) != null)
             response.append(inputLine);
         in.close();
-        LOGGER.info("Respone Info: " + response.toString());
+        LOGGER.info("Response Info: " + response);
         return response.toString();
     }
 
