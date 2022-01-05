@@ -16,13 +16,13 @@ public class Bike {
 
     private int bikeId;
     private int type;
-    private String stationId;
+    private int stationId;
 
     public Bike() {
         super();
     }
 
-    public Bike(int bikeId, int type, String stationId) {
+    public Bike(int bikeId, int type, int stationId) {
         super();
         this.bikeId = bikeId;
         this.type = type;
@@ -82,11 +82,11 @@ public class Bike {
         this.type = type;
     }
 
-    public String getStationId() {
+    public int getStationId() {
         return stationId;
     }
 
-    public void setStationId(String stationId) {
+    public void setStationId(int stationId) {
         this.stationId = stationId;
     }
 
@@ -95,10 +95,10 @@ public class Bike {
         Statement stm = EBRDB.getConnection().createStatement();
         ResultSet res = stm.executeQuery(sql);
         if (res.next()) {
-
             Bike bike = new Bike();
             bike.setBikeId(res.getInt("id"));
             bike.setType(res.getInt("type"));
+            bike.setStationId(res.getInt("station"));
             return bike;
         }
         return null;
@@ -115,11 +115,11 @@ public class Bike {
             rentedat = res.getInt("station");
         }
 
-        sql = "UPDATE bike SET station = NULL WHERE id = " + bikeId;
-        stm.executeQuery(sql);
+        sql = "UPDATE bike SET station = 0 WHERE id = " + bikeId;
+        stm.executeUpdate(sql);
 
-        sql = "INSERT INTO bikerental (bikeId, customerId, rentedat, time) VALUES(" + bikeId + "," + customerId + ","
-                + rentedat + "," + Utils.getToday() + ")";
-        stm.executeQuery(sql);
+        sql = "INSERT INTO bikerental (bikeid, customerid, rentedat, time) " +
+                "VALUES ('" + bikeId + "','" + customerId + "','" + rentedat + "','" + Utils.getToday() + "')";
+        stm.executeUpdate(sql);
     }
 }

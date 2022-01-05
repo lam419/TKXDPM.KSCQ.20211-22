@@ -69,26 +69,26 @@ public class InterbankSubsystemController {
 
     private PaymentTransaction makePaymentTransaction(MyMap response) {
         String errorCode = (String) response.get("errorCode");
-        switch (errorCode) {
-            case "00":
-                break;
-            case "01":
-                throw new InvalidCardException();
-            case "02":
-                throw new NotEnoughBalanceException();
-            case "03":
-                throw new InternalServerErrorException();
-            case "04":
-                throw new SuspiciousTransactionException();
-            case "05":
-                throw new NotEnoughTransactionInfoException();
-            case "06":
-                throw new InvalidVersionException();
-            case "07":
-                throw new InvalidTransactionAmountException();
-            default:
-                throw new UnrecognizedException();
-        }
+//        switch (errorCode) {
+//            case "00":
+//                break;
+//            case "01":
+//                throw new InvalidCardException();
+//            case "02":
+//                throw new NotEnoughBalanceException();
+//            case "03":
+//                throw new InternalServerErrorException();
+//            case "04":
+//                throw new SuspiciousTransactionException();
+//            case "05":
+//                throw new NotEnoughTransactionInfoException();
+//            case "06":
+//                throw new InvalidVersionException();
+//            case "07":
+//                throw new InvalidTransactionAmountException();
+//            default:
+//                throw new UnrecognizedException();
+//        }
         if (!response.containsKey("transaction"))
             return null;
         MyMap transaction = (MyMap) response.get("transaction");
