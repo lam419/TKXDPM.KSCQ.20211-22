@@ -1,6 +1,7 @@
 package views.screen.bikeinfo;
 
 import controller.BikeInfoController;
+import entity.db.EBRDB;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -69,7 +70,7 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
     public ResultSet view(String bike) {
         ResultSet resultSet = null;
         try {
-            Statement statement = (Statement) connection.createStatement();
+            Statement statement = EBRDB.getConnection().createStatement();
             String sql = "SELECT * FROM WHERE bikeid = ' " + bike + " '";
 
             resultSet = statement.executeQuery(sql);

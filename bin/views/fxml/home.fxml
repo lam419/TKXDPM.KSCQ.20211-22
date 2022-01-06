@@ -20,7 +20,7 @@
                     <children>
                         <Pane prefHeight="102.0" prefWidth="237.0">
                             <children>
-                                <ImageView fx:id="aimsImage" fitHeight="94.0" fitWidth="115.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                                <ImageView fx:id="ebrImage" fitHeight="94.0" fitWidth="115.0" layoutX="9.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                                     <image>
                                         <Image url="@../../../assets/images/Logo.png" />
                                     </image>
@@ -74,11 +74,11 @@
                 </VBox>
             </children>
         </HBox>
-        <HBox fx:id="hboxMedia" layoutX="24.0" layoutY="123.0" prefHeight="629.0" prefWidth="1283.0">
+        <HBox fx:id="hboxStation" layoutX="24.0" layoutY="123.0" prefHeight="629.0" prefWidth="1283.0">
             <children>
-                <VBox fx:id="vboxMedia1" prefHeight="629.0" prefWidth="321.0" style="-fx-border-color: #33adff;" />
-                <VBox fx:id="vboxMedia2" prefHeight="629.0" prefWidth="320.0" style="-fx-border-color: #33adff;" />
-                <VBox fx:id="vboxMedia3" prefHeight="629.0" prefWidth="320.0" style="-fx-border-color: #33adff;" />
+                <VBox fx:id="vboxStation1" prefHeight="629.0" prefWidth="321.0" style="-fx-border-color: #33adff;" />
+                <VBox fx:id="vboxStation2" prefHeight="629.0" prefWidth="320.0" style="-fx-border-color: #33adff;" />
+                <VBox fx:id="vboxStation3" prefHeight="629.0" prefWidth="320.0" style="-fx-border-color: #33adff;" />
                 <VBox prefHeight="629.0" prefWidth="320.0" style="-fx-border-color: #33adff;" />
             </children>
         </HBox>

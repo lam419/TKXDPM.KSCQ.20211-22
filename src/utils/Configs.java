@@ -43,7 +43,9 @@ public class Configs {
     public static final String SHIPPING_SCREEN_PATH = "/views/fxml/shipping.fxml";
     public static final String CART_MEDIA_PATH = "/views/fxml/media_cart.fxml";
     public static final String HOME_PATH = "/views/fxml/home.fxml";
-    public static final String HOME_MEDIA_PATH = "/views/fxml/media_home.fxml";
+    public static final String HOME_STATION_PATH = "/views/fxml/StationItem.fxml";
+    public static final String HOME_BIKE_PATH = "/views/fxml/BikeItem.fxml";
+    public static final String VIEW_BIKES_IN_STATION_SCREEN_PATH = "/views/fxml/viewbikesinstation.fxml";
     public static final String POPUP_PATH = "/views/fxml/popup.fxml";
 
     public static Font REGULAR_FONT = Font.font("Segoe UI", FontWeight.NORMAL, FontPosture.REGULAR, 24);

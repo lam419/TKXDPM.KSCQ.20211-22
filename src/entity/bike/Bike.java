@@ -10,9 +10,9 @@ import utils.Utils;
 
 public class Bike {
 
-//	public final int BIKE = 0;
-//	public final int EBIKE = 1;
-//	public final int TWINBIKE = 2;
+    public final int BIKE = 0;
+    public final int EBIKE = 1;
+    public final int TWINBIKE = 2;
 
     private int bikeId;
     private int type;
@@ -43,9 +43,9 @@ public class Bike {
 
     public String getTypeString() {
         switch (type) {
-            case 0:
+            case BIKE:
                 return "Xe đạp đơn";
-            case 1:
+            case EBIKE:
                 return "Xe đạp điện";
             default:
                 return "Xe đạp đôi";
@@ -54,9 +54,9 @@ public class Bike {
 
     public int getDeposit() {
         switch (type) {
-            case 0:
+            case BIKE:
                 return 400000;
-            case 1:
+            case EBIKE:
                 return 700000;
             default:
                 return 550000;
@@ -66,10 +66,10 @@ public class Bike {
     public String getImageUrl() {
         String url = Configs.IMAGE_PATH;
         switch (type) {
-            case 0:
+            case BIKE:
                 url += "/" + "Bike.jpg";
                 break;
-            case 1:
+            case EBIKE:
                 url += "/" + "ElectricBike.png";
                 break;
             default:

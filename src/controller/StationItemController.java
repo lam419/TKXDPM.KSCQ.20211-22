@@ -85,7 +85,7 @@ public class StationItemController {
         Scene scene = new Scene(viewBikeParent);
         stage.setScene(scene);
 
-        BikeController bikeController = (BikeController) loader.getController();
-        bikeController.addBikeItem(getId());
+//        BikeController bikeController = (BikeController) loader.getController();
+//        bikeController.addBikeItem(getId());
     }
 }

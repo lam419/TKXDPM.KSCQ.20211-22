@@ -2,7 +2,6 @@ package application;
 
 import java.io.IOException;
 
-import entity.db.EBRDB;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -25,7 +24,7 @@ public class Main extends Application {
         try {
 
             // initialise the scene
-            StackPane root = (StackPane) FXMLLoader.load(getClass().getResource(Configs.SPLASH_SCREEN_PATH));
+            StackPane root = FXMLLoader.load(getClass().getResource(Configs.SPLASH_SCREEN_PATH));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();

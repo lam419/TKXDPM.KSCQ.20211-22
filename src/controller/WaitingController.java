@@ -34,8 +34,8 @@ public class WaitingController {
         Scene scene = new Scene(viewBikeParent);
         stage.setScene(scene);
 
-        ReturnController controller = (ReturnController) loader.getController();
-        controller.addData();
-        controller.giveBikeID(bikeID);
+//        ReturnController controller = (ReturnController) loader.getController();
+//        controller.addData();
+//        controller.giveBikeID(bikeID);
     }
 }
