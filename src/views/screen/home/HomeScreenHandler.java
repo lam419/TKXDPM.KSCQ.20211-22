@@ -1,27 +1,19 @@
 package views.screen.home;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.logging.Logger;
-
-import controller.*;
-import subsystem.entity.station.Station;
-import javafx.scene.input.MouseEvent;
-
+import controller.HomeController;
+import controller.RentBikeController;
+import controller.ReturnBikeController;
+import controller.ViewBikesInStationController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitMenuButton;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import subsystem.entity.station.Station;
 import utils.Configs;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
@@ -30,6 +22,17 @@ import views.screen.rentbike.RentBikeScreenHandler;
 import views.screen.returnbike.ReturnBikeScreenHandler;
 import views.screen.viewbikesinstation.ViewBikesInStationScreenHandler;
 
+import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.logging.Logger;
+
+/**
+ * @author Hoàng Minh Lương - 20194108
+ */
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
 
     public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
@@ -86,17 +89,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         });
 
         addStationHome(this.homeItems);
-//        addMenuItem(0, "Book", splitMenuBtnSearch);
-//        addMenuItem(1, "DVD", splitMenuBtnSearch);
-//        addMenuItem(2, "CD", splitMenuBtnSearch);
-    }
-
-    //
-    public void setImage() {
-        // fix image path caused by fxml
-        File file1 = new File(Configs.IMAGE_PATH + "/" + "Logo.png");
-        Image img1 = new Image(file1.toURI().toString());
-//        ebrImage.setImage(img1);
     }
 
     public void addStationHome(List items) {
@@ -118,35 +110,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             return;
         }
     }
-
-//    private void addMenuItem(int position, String text, MenuButton menuButton) {
-//        MenuItem menuItem = new MenuItem();
-//        Label label = new Label();
-//        label.prefWidthProperty().bind(menuButton.widthProperty().subtract(31));
-//        label.setText(text);
-//        label.setTextAlignment(TextAlignment.RIGHT);
-//        menuItem.setGraphic(label);
-//        menuItem.setOnAction(e -> {
-//            // empty home station
-//            hboxStation.getChildren().forEach(node -> {
-//                VBox vBox = (VBox) node;
-//                vBox.getChildren().clear();
-//            });
-//
-//            // filter only station with the choosen category
-//            List filteredItems = new ArrayList<>();
-//            homeItems.forEach(me -> {
-//                StationHandler station = (StationHandler) me;
-//                if (station.getStation().getName().toLowerCase().startsWith(text.toLowerCase())) {
-//                    filteredItems.add(station);
-//                }
-//            });
-//
-//            // fill out the home with filted station as category
-//            addStationHome(filteredItems);
-//        });
-//        menuButton.getItems().add(position, menuItem);
-//    }
 
     @FXML
     void requestToRentBike(MouseEvent event) throws IOException {

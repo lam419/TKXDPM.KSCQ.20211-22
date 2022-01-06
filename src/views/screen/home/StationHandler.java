@@ -1,10 +1,10 @@
 package views.screen.home;
 
-import subsystem.entity.station.Station;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import subsystem.entity.station.Station;
 import utils.Utils;
 import views.screen.FXMLScreenHandler;
 
@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
+/**
+ * @author Hoàng Minh Lương - 20194108
+ */
 public class StationHandler extends FXMLScreenHandler {
 
     public static Logger LOGGER = Utils.getLogger(StationHandler.class.getName());

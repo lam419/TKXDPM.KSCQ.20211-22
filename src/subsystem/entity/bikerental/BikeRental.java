@@ -6,13 +6,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * @author Hoàng Minh Lương - 20194108
+ */
 public class BikeRental {
     private int bikeId;
     private int customerId;
     private int stationId;
     private String time;
 
-    public BikeRental() {}
+    public BikeRental() {
+    }
 
     public BikeRental(int bikeId, int customerId, int stationId, String time) {
         this.bikeId = bikeId;

@@ -1,13 +1,16 @@
 package subsystem.entity.bike;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import subsystem.entity.db.EBRDB;
 import utils.Configs;
 import utils.Utils;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+ * @author Hoàng Minh Lương - 20194108
+ */
 public class Bike {
 
     public final int BIKE = 0;

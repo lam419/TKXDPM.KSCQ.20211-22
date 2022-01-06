@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Hoàng Minh Lương - 20194108
+ */
 public class Station {
     private int stationId;
     private String name;

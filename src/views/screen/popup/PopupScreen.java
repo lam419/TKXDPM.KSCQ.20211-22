@@ -1,7 +1,5 @@
 package views.screen.popup;
 
-import java.io.IOException;
-
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -11,6 +9,8 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import utils.Configs;
 import views.screen.BaseScreenHandler;
+
+import java.io.IOException;
 
 public class PopupScreen extends BaseScreenHandler {
 

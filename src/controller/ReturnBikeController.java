@@ -9,6 +9,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @author Hoàng Minh Lương - 20194108
+ */
 public class ReturnBikeController extends BaseController {
     public BikeRental getBikeRentalFromCustomerId(int customerId) throws SQLException {
         return new BikeRental().getBikeRentalFromCustomerId(customerId);

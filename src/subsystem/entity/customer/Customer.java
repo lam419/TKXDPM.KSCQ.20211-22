@@ -1,5 +1,8 @@
 package subsystem.entity.customer;
 
+/**
+ * @author Hoàng Minh Lương - 20194108
+ */
 public class Customer {
 
     private int id;

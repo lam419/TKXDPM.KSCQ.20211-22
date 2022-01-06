@@ -1,12 +1,12 @@
 package views.screen;
 
-import java.io.IOException;
-import java.util.Hashtable;
-
 import controller.BaseController;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import views.screen.home.HomeScreenHandler;
+
+import java.io.IOException;
+import java.util.Hashtable;
 
 public class BaseScreenHandler extends FXMLScreenHandler {
 

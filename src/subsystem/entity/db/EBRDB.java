@@ -1,11 +1,10 @@
 package subsystem.entity.db;
 
-import java.sql.DriverManager;
-import java.util.logging.Logger;
+import utils.Utils;
 
 import java.sql.Connection;
-
-import utils.*;
+import java.sql.DriverManager;
+import java.util.logging.Logger;
 
 public class EBRDB {
 

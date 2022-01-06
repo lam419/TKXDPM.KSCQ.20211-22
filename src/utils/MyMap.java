@@ -30,11 +30,6 @@ public class MyMap extends LinkedHashMap<String, Object> {
             sb.append(':');
             sb.append(value instanceof MyMap ? ((MyMap) value).toJSON() : ('"' + value.toString() + '"'));
 
-//			if (value instanceof MyMap) {
-//				sb.append(((MyMap) value).toJSON());
-//			} else {
-//				sb.append('"' + value.toString() + '"');
-//			}
             if (i == max)
                 return sb.append('}').toString();
             sb.append(",");

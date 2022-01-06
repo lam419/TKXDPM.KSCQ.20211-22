@@ -1,7 +1,5 @@
 package application;
 
-import java.io.IOException;
-
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -12,7 +10,9 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import utils.Configs;
-import views.screen.home.*;
+import views.screen.home.HomeScreenHandler;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
@@ -52,7 +52,6 @@ public class Main extends Application {
                 try {
                     HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
                     homeHandler.setScreenTitle("Home Screen");
-                    homeHandler.setImage();
                     homeHandler.show();
                 } catch (IOException e1) {
                     e1.printStackTrace();

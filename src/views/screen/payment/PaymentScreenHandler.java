@@ -1,10 +1,5 @@
 package views.screen.payment;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Map;
-import java.util.Objects;
-
 import controller.PaymentController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,6 +10,14 @@ import javafx.stage.Stage;
 import utils.Configs;
 import views.screen.BaseScreenHandler;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Map;
+import java.util.Objects;
+
+/**
+ * @author Hoàng Minh Lương - 20194108
+ */
 public class PaymentScreenHandler extends BaseScreenHandler {
 
     @FXML

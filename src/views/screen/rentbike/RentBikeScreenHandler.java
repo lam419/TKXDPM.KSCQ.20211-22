@@ -1,23 +1,26 @@
 package views.screen.rentbike;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
 import common.exception.InvalidBarCodeException;
 import controller.PaymentController;
 import controller.RentBikeController;
-import subsystem.entity.bike.Bike;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import subsystem.entity.bike.Bike;
 import utils.Configs;
 import views.screen.BaseScreenHandler;
 import views.screen.payment.PaymentScreenHandler;
 import views.screen.popup.PopupScreen;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
+/**
+ * @author Hoàng Minh Lương - 20194108
+ */
 public class RentBikeScreenHandler extends BaseScreenHandler {
 
     @FXML

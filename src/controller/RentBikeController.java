@@ -1,10 +1,13 @@
 package controller;
 
-import java.sql.SQLException;
-
 import common.exception.InvalidBarCodeException;
 import subsystem.entity.bike.Bike;
 
+import java.sql.SQLException;
+
+/**
+ * @author Hoàng Minh Lương - 20194108
+ */
 public class RentBikeController extends BaseController {
 
     public void processBarCode(String barCode) {

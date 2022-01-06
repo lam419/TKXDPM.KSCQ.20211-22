@@ -1,9 +1,9 @@
 package views.screen.viewbikesinstation;
 
-import subsystem.entity.bike.Bike;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import subsystem.entity.bike.Bike;
 import utils.Utils;
 import views.screen.FXMLScreenHandler;
 
@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
+/**
+ * @author Hoàng Minh Lương - 20194108
+ */
 public class BikeHandler extends FXMLScreenHandler {
 
     @FXML
