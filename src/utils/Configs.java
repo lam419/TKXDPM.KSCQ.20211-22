@@ -36,6 +36,7 @@ public class Configs {
     public static final String INVOICE_SCREEN_PATH = "/views/fxml/invoice.fxml";
     public static final String INVOICE_MEDIA_SCREEN_PATH = "/views/fxml/media_invoice.fxml";
     public static final String RENT_BIKE_SCREEN_PATH = "/views/fxml/rentbike.fxml";
+    public static final String RETURN_BIKE_SCREEN_PATH = "/views/fxml/returnbike.fxml";
     public static final String PAYMENT_SCREEN_PATH = "/views/fxml/payment.fxml";
     public static final String RESULT_SCREEN_PATH = "/views/fxml/result.fxml";
     public static final String SPLASH_SCREEN_PATH = "/views/fxml/splash.fxml";

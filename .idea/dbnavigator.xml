@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="a0800361-0f9f-4dca-b729-3429eea041fe">
-        <schema name="ebr" object-types="table, view" />
+        <schema name="ebr" object-types="table, view, procedure, function, constraint, index, column, dataset trigger" />
       </connection>
     </loaded-nodes>
   </component>

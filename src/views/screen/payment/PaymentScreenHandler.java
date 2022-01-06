@@ -25,16 +25,20 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 
     private int amount;
     private int bikeId;
+    private int stationId;
+    private String contents;
 
-    public PaymentScreenHandler(Stage stage, String screenPath, int amount, int bikeId, String contents)
+    public PaymentScreenHandler(Stage stage, String screenPath, int amount, int bikeId, int stationId, String contents)
             throws IOException {
         super(stage, screenPath);
         this.amount = amount;
         this.bikeId = bikeId;
+        this.stationId = stationId;
+        this.contents = contents;
 
         btnConfirmPayment.setOnMouseClicked(e -> {
             try {
-                confirmToPayDeposit();
+                confirmToPay();
             } catch (Exception exp) {
                 exp.printStackTrace();
             }
@@ -56,14 +60,14 @@ public class PaymentScreenHandler extends BaseScreenHandler {
     @FXML
     private TextField securityCode;
 
-    void confirmToPayDeposit() throws IOException, SQLException {
-        String contents = "pay deposit";
+    void confirmToPay() throws IOException, SQLException {
         PaymentController ctrl = (PaymentController) getBController();
-        Map<String, String> response = ctrl.payOrder(1000, contents, cardNumber.getText(), holderName.getText(),
+        Map<String, String> response = ctrl.payOrder(amount, contents, cardNumber.getText(), holderName.getText(),
                 expirationDate.getText(), securityCode.getText());
 
         if (Objects.equals(response.get("RESULT"), "PAYMENT SUCCESSFUL!")) {
-            ctrl.addDepositTransactionToDatabase(bikeId);
+            if (stationId == 0) ctrl.addDepositTransactionToDatabase(bikeId);
+            else ctrl.modifyDatabaseWhenReturnBike(bikeId, stationId);
         }
 
         BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH,

@@ -88,4 +88,18 @@ public class Station {
         }
         return bikes;
     }
+
+    public Station getStationFromId(int stationId) throws SQLException {
+        Station station = new Station();
+        String sql = "SELECT * FROM station where id = " + stationId;
+        Statement stm = EBRDB.getConnection().createStatement();
+        ResultSet res = stm.executeQuery(sql);
+        if (res.next()) {
+            station.setStationId(stationId);
+            station.setName(res.getString("name"));
+            station.setAddress(res.getString("address"));
+            station.setCapacity(res.getInt("capacity"));
+            return station;
+        } else return null;
+    }
 }

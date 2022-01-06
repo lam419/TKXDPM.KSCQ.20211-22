@@ -101,4 +101,8 @@ public class PaymentController extends BaseController {
     public void addDepositTransactionToDatabase(int bikeId) throws SQLException {
         new Bike().rentBike(bikeId);
     }
+
+    public void modifyDatabaseWhenReturnBike(int bikeId, int stationId) throws SQLException {
+        new Bike().returnBike(bikeId, stationId);
+    }
 }

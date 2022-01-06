@@ -104,8 +104,24 @@ public class Bike {
         return null;
     }
 
+    public Bike getBikeFromCustomerId(int customerId) throws SQLException {
+        // TODO tạm coi customerId = 10001
+        Bike bike = new Bike();
+        customerId = 10001;
+        String sql = "SELECT * FROM bike, bikerental where customerid = " + customerId;
+        Statement stm = EBRDB.getConnection().createStatement();
+        ResultSet res = stm.executeQuery(sql);
+        if (res.next()) {
+            bike.setBikeId(res.getInt("id"));
+            bike.setType(res.getInt("type"));
+            bike.setStationId(0);
+        }
+        return bike;
+    }
+
     public void rentBike(int bikeId) throws SQLException {
-        int customerId = 10000;
+        // TODO tạm coi customerId = 10001
+        int customerId = 10001;
         int rentedat = 1000;
 
         String sql = "SELECT * FROM bike where id = " + bikeId;
@@ -120,6 +136,15 @@ public class Bike {
 
         sql = "INSERT INTO bikerental (bikeid, customerid, rentedat, time) " +
                 "VALUES ('" + bikeId + "','" + customerId + "','" + rentedat + "','" + Utils.getToday() + "')";
+        stm.executeUpdate(sql);
+    }
+
+    public void returnBike(int bikeId, int stationId) throws SQLException {
+        Statement stm = EBRDB.getConnection().createStatement();
+        String sql = "UPDATE bike SET station = " + stationId + " WHERE id = " + bikeId;
+        stm.executeUpdate(sql);
+
+        sql = "DELETE  FROM bikerental WHERE bikeid = " + bikeId;
         stm.executeUpdate(sql);
     }
 }

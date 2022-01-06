@@ -60,7 +60,7 @@ public class RentBikeScreenHandler extends BaseScreenHandler {
     void payDeposit(MouseEvent event) throws IOException {
         if (isValidBarCode && !hasRented) {
             BaseScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN_PATH, deposit,
-                    bikeId, "deposit");
+                    bikeId, 0, "deposit");
             paymentScreen.setBController(new PaymentController());
             paymentScreen.setPreviousScreen(this);
             paymentScreen.setHomeScreenHandler(homeScreenHandler);

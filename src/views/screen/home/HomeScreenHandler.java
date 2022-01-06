@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,6 +35,7 @@ import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.payment.PaymentScreenHandler;
 import views.screen.rentbike.RentBikeScreenHandler;
+import views.screen.returnbike.ReturnBikeScreenHandler;
 import views.screen.viewbikesinstation.ViewBikesInStationScreenHandler;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
@@ -163,6 +165,20 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             rentBikeScreen.setBController(new RentBikeController());
             rentBikeScreen.requestToRentBike(this);
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void requestToReturnBike(MouseEvent event) throws IOException {
+        ReturnBikeScreenHandler rentBikeScreen;
+        try {
+            // TODO tạm coi customerid = 10001
+            rentBikeScreen = new ReturnBikeScreenHandler(this.stage, Configs.RETURN_BIKE_SCREEN_PATH, 10001);
+            rentBikeScreen.setHomeScreenHandler(this);
+            rentBikeScreen.setBController(new ReturnBikeController());
+            rentBikeScreen.requestToRentBike(this);
+        } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }
     }

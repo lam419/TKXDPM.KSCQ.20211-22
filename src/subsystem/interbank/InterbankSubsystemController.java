@@ -21,6 +21,7 @@ public class InterbankSubsystemController {
     private static final String APP_CODE = "B5pajA7L4VU=";
     private static final String SECRET_KEY = "BZl0Q/U8834=";
     private static final String PAY_COMMAND = "pay";
+    private static final String REFUND_COMMAND = "refund";
     private static final String VERSION = "1.0.1";
 
     private static InterbankBoundary interbankBoundary = new InterbankBoundary();
@@ -41,7 +42,12 @@ public class InterbankSubsystemController {
         } catch (IllegalArgumentException | IllegalAccessException e) {
             throw new InvalidCardException();
         }
-        transaction.put("command", PAY_COMMAND);
+        if (amount < 0) {
+            amount = -amount;
+            transaction.put("command", REFUND_COMMAND);
+        } else {
+            transaction.put("command", PAY_COMMAND);
+        }
         transaction.put("transactionContent", contents);
         transaction.put("amount", amount);
         transaction.put("createdAt", Utils.getToday());

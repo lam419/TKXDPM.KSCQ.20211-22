@@ -29,7 +29,7 @@ public class WaitingController {
 
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../views/ReturnBike.fxml"));
+//        loader.setLocation(getClass().getResource("../views/Return.fxml"));
         Parent viewBikeParent = loader.load();
         Scene scene = new Scene(viewBikeParent);
         stage.setScene(scene);
