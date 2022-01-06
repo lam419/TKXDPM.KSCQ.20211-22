@@ -1,6 +1,6 @@
 package views.screen.viewbikesinstation;
 
-import entity.bike.Bike;
+import subsystem.entity.bike.Bike;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;

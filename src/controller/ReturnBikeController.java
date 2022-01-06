@@ -1,8 +1,8 @@
 package controller;
 
-import entity.bike.Bike;
-import entity.bikerental.BikeRental;
-import entity.station.Station;
+import subsystem.entity.bike.Bike;
+import subsystem.entity.bikerental.BikeRental;
+import subsystem.entity.station.Station;
 
 import java.sql.SQLException;
 import java.text.ParseException;

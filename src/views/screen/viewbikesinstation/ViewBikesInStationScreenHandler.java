@@ -1,7 +1,7 @@
 package views.screen.viewbikesinstation;
 
 import controller.ViewBikesInStationController;
-import entity.bike.Bike;
+import subsystem.entity.bike.Bike;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import utils.Configs;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
-import views.screen.home.StationHandler;
 
 import java.io.IOException;
 import java.sql.SQLException;

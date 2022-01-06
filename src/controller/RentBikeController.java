@@ -3,7 +3,7 @@ package controller;
 import java.sql.SQLException;
 
 import common.exception.InvalidBarCodeException;
-import entity.bike.Bike;
+import subsystem.entity.bike.Bike;
 
 public class RentBikeController extends BaseController {
 

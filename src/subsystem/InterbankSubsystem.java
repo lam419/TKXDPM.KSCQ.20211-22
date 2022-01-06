@@ -1,9 +1,7 @@
 package subsystem;
 
-import common.exception.PaymentException;
-import common.exception.UnrecognizedException;
-import entity.payment.CreditCard;
-import entity.payment.PaymentTransaction;
+import subsystem.entity.payment.CreditCard;
+import subsystem.entity.payment.PaymentTransaction;
 import subsystem.interbank.InterbankSubsystemController;
 
 public class InterbankSubsystem implements InterbankInterface {
@@ -23,7 +21,7 @@ public class InterbankSubsystem implements InterbankInterface {
     }
 
     /**
-     * @see InterbankInterface#payOrder(entity.payment.CreditCard, int,
+     * @see InterbankInterface#payOrder(CreditCard, int,
      * java.lang.String)
      */
     public PaymentTransaction payOrder(CreditCard card, int amount, String contents) {
@@ -32,7 +30,7 @@ public class InterbankSubsystem implements InterbankInterface {
     }
 
     /**
-     * @see InterbankInterface#refund(entity.payment.CreditCard, int,
+     * @see InterbankInterface#refund(CreditCard, int,
      * java.lang.String)
      */
     public PaymentTransaction refund(CreditCard card, int amount, String contents) {

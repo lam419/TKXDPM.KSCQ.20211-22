@@ -2,9 +2,9 @@ package views.screen.returnbike;
 
 import controller.PaymentController;
 import controller.ReturnBikeController;
-import entity.bike.Bike;
-import entity.bikerental.BikeRental;
-import entity.station.Station;
+import subsystem.entity.bike.Bike;
+import subsystem.entity.bikerental.BikeRental;
+import subsystem.entity.station.Station;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -95,7 +95,7 @@ public class ReturnBikeScreenHandler extends BaseScreenHandler {
             PopupScreen.error("Invalid stationId");
         } else {
             BaseScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN_PATH, controller.calculateFee(bikeRental.getTime(), Utils.getToday()) - bike.getDeposit(),
-                    bike.getBikeId(), stationId, "fee");
+                    bikeRental.getBikeId(), stationId, "fee");
             paymentScreen.setBController(new PaymentController());
             paymentScreen.setPreviousScreen(this);
             paymentScreen.setHomeScreenHandler(homeScreenHandler);
@@ -113,6 +113,7 @@ public class ReturnBikeScreenHandler extends BaseScreenHandler {
         stationId = Integer.parseInt(stationIdTextField.getText());
         Station station = controller.getStationFromId(stationId);
         if (station != null) {
+            stationId = station.getStationId();
             stationImage.setVisible(true);
             stationLabel.setVisible(true);
             stationLabel.setText(station.getName());

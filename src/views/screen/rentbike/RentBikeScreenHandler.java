@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import common.exception.InvalidBarCodeException;
 import controller.PaymentController;
 import controller.RentBikeController;
-import entity.bike.Bike;
+import subsystem.entity.bike.Bike;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;

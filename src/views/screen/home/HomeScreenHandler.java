@@ -4,36 +4,28 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 import controller.*;
-import entity.station.Station;
+import subsystem.entity.station.Station;
 import javafx.scene.input.MouseEvent;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import utils.Configs;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
-import views.screen.payment.PaymentScreenHandler;
+import views.screen.popup.PopupScreen;
 import views.screen.rentbike.RentBikeScreenHandler;
 import views.screen.returnbike.ReturnBikeScreenHandler;
 import views.screen.viewbikesinstation.ViewBikesInStationScreenHandler;
@@ -178,8 +170,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             rentBikeScreen.setHomeScreenHandler(this);
             rentBikeScreen.setBController(new ReturnBikeController());
             rentBikeScreen.requestToRentBike(this);
-        } catch (SQLException | ParseException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            PopupScreen.error("Ban chua thue xe");
+            //e.printStackTrace();
         }
     }
 

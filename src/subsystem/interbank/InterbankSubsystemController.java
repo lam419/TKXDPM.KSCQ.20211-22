@@ -2,16 +2,10 @@ package subsystem.interbank;
 
 import java.util.Map;
 
-import common.exception.InternalServerErrorException;
 import common.exception.InvalidCardException;
-import common.exception.InvalidTransactionAmountException;
-import common.exception.InvalidVersionException;
-import common.exception.NotEnoughBalanceException;
-import common.exception.NotEnoughTransactionInfoException;
-import common.exception.SuspiciousTransactionException;
 import common.exception.UnrecognizedException;
-import entity.payment.CreditCard;
-import entity.payment.PaymentTransaction;
+import subsystem.entity.payment.CreditCard;
+import subsystem.entity.payment.PaymentTransaction;
 import utils.Configs;
 import utils.MyMap;
 import utils.Utils;

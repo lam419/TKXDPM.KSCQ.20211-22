@@ -1,6 +1,6 @@
 package controller;
 
-import entity.station.Station;
+import subsystem.entity.station.Station;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,18 +1,12 @@
 package views.screen.home;
 
-import controller.RentBikeController;
-import controller.ViewBikesInStationController;
-import entity.station.Station;
+import subsystem.entity.station.Station;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-import utils.Configs;
 import utils.Utils;
-import views.screen.BaseScreenHandler;
 import views.screen.FXMLScreenHandler;
-import views.screen.viewbikesinstation.ViewBikesInStationScreenHandler;
 
 import java.io.IOException;
 import java.sql.SQLException;
